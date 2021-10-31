@@ -10,7 +10,7 @@ using SimpleImageGallery.Data;
 namespace SimpleImageGallery.Data.Migrations
 {
     [DbContext(typeof(SimpleImageGalleryDbContext))]
-    [Migration("20211031131703_Initial Migration")]
+    [Migration("20211031173714_Initial Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

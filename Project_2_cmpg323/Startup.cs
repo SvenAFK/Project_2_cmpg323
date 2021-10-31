@@ -38,7 +38,7 @@ namespace Project_2_cmpg323
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("Azure_DbStorage")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>(); 
 
@@ -46,7 +46,7 @@ namespace Project_2_cmpg323
 
             services.AddDbContext<SimpleImageGalleryDbContext>(options =>
                 options.UseSqlServer(Configuration
-                .GetConnectionString("DefaultConnection")));
+                .GetConnectionString("Azure_DbStorage")));
 
             services.AddScoped<IImage, ImageService>();
         }
@@ -75,8 +75,8 @@ namespace Project_2_cmpg323
             {
                 routes.MapRoute(
                     name: "default",
-                    //Change Gallery to "Home" for default home page
-                    template: "{controller=Gallery}/{action=Index}/{id?}");
+                    //Change Gallery to "Home" for default home page 
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,8 +1,10 @@
 {
   "dependencies": {
     "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:DefaultConnection"
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/project2cmpg323/databases/aspnet-Project_2_cmpg323-4F875C7D-4B62-4337-8276-82F26F32B683",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:Azure_DbStorage",
+      "secretStore": null
     }
   }
 }
