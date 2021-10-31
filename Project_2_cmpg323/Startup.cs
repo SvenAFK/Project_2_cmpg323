@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Project_2_cmpg323.Data;
 using SimpleImageGallery.Data;
+using SimpleImageGallery.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,8 @@ namespace Project_2_cmpg323
             services.AddDbContext<SimpleImageGalleryDbContext>(options =>
                 options.UseSqlServer(Configuration
                 .GetConnectionString("DefaultConnection")));
+
+            services.AddScoped<IImage, ImageService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

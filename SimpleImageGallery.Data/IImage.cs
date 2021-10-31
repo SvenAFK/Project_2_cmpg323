@@ -9,7 +9,7 @@ namespace SimpleImageGallery.Data
     {
         IEnumerable<GalleryImage> GetAll();
         IEnumerable<GalleryImage> GetWithTag(string tag);
-        GalleryImage GetById();
+        GalleryImage GetById(int id);
 
     }
 }
