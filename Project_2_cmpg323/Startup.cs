@@ -75,7 +75,8 @@ namespace Project_2_cmpg323
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    //Change Gallery to "Home" for default home page
+                    template: "{controller=Gallery}/{action=Index}/{id?}");
             });
         }
     }
