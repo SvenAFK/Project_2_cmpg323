@@ -37,9 +37,9 @@ namespace SimpleImageGallery.Services
             .Any(t => t.Description == tag));
         }
 
-        public CloudBlobContainer GetBlobContainer(string azureConnectionString, string containerName)
+        public CloudBlobContainer GetBlobContainer(string AzureStorageConnectionString, string containerName)
         {
-            var storageAccount = CloudStorageAccount.Parse(azureConnectionString);
+            var storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=project2imagegallery;AccountKey=6jANYl9ENp8ywx/PiewIAebhFBv0Kdg8DxMxVWVXB9a+KHq+F0uibcIAP7U3JPoE0N3t5mZlb/wh1udiTfCFsw==;EndpointSuffix=core.windows.net");
             var blobClient = storageAccount.CreateCloudBlobClient();
             return blobClient.GetContainerReference(containerName);
         }
