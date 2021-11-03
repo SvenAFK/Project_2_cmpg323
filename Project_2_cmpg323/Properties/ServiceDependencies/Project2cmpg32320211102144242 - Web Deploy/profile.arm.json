@@ -21,7 +21,7 @@
     },
     "resourceName": {
       "type": "string",
-      "defaultValue": "Project2cmpg32320211031203258",
+      "defaultValue": "Project2cmpg32320211102144242",
       "metadata": {
         "description": "Name of the main resource to be created by this template."
       }
