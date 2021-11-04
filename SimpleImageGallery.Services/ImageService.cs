@@ -44,14 +44,15 @@ namespace SimpleImageGallery.Services
             return blobClient.GetContainerReference(containerName);
         }
 
-        public async Task SetImage(string title, string tags, Uri uri)
+        public async Task SetImage(string title, string tags, Uri uri, string user_Id)
         {
             var image = new GalleryImage
             {
                 Title = title,
                 Tags = ParseTags(tags),
                 Url = uri.AbsoluteUri,
-                Created = DateTime.Now
+                Created = DateTime.Now,
+                User_Id = user_Id
             };
 
             _ctx.Add(image);

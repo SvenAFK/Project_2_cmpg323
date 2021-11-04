@@ -10,6 +10,8 @@ namespace SimpleImageGallery.Data.Models
         public DateTime Created { get; set; }
         public string Url { get; set; }
 
+        public string User_Id { get; set; }
+
         public virtual IEnumerable<ImageTag> Tags { get; set; }
     }
 }

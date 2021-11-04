@@ -13,7 +13,7 @@ namespace SimpleImageGallery.Data
         IEnumerable<GalleryImage> GetWithTag(string tag);
         GalleryImage GetById(int id);
         CloudBlobContainer GetBlobContainer(string connectionString, string containerName);
-        Task SetImage(string title, string tags, Uri uri);
+        Task SetImage(string title, string tags, Uri uri,string user_Id);
         List<ImageTag> ParseTags(string tags);
 
     }

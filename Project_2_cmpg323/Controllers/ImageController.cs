@@ -5,6 +5,7 @@ using Project_2_cmpg323.Models;
 using SimpleImageGallery.Data;
 using SimpleImageGallery.Services;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Project_2_cmpg323.Controllers
@@ -36,11 +37,14 @@ namespace Project_2_cmpg323.Controllers
             var content = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
             var fileName = content.FileName.Trim('"');
 
+            //Get current user
+            string strCurrentUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             //Get a reference to a Block Blob
             var blockBlob = container.GetBlockBlobReference(fileName);
 
             await blockBlob.UploadFromStreamAsync(file.OpenReadStream());
-            await _imageService.SetImage(title, tags, blockBlob.Uri);
+            await _imageService.SetImage(title, tags, blockBlob.Uri, strCurrentUserID);
 
             return RedirectToAction("Index", "Gallery");
         }
