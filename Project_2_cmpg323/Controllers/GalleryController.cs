@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Project_2_cmpg323.Models;
 using SimpleImageGallery.Data;
 using System.Linq;
+using System.Security.Claims;
 
 namespace Project_2_cmpg323.Controllers
 {
+    [Authorize]
     public class GalleryController : Controller
     {
         private readonly IImage _imageService;
@@ -12,8 +15,8 @@ namespace Project_2_cmpg323.Controllers
         public GalleryController(IImage imageService) {
             _imageService = imageService;
         }
-
-        public IActionResult Index()
+        //Show all gallery images regardless of user
+        /*public IActionResult Index()
         {
             var imageList = _imageService.GetAll();
             var model = new GalleryIndexModel()
@@ -23,6 +26,18 @@ namespace Project_2_cmpg323.Controllers
             };
 
             return View(model);  
+        }*/
+        public IActionResult Index()
+        {
+            string strCurrentUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var imageList = _imageService.GetWithUserId(strCurrentUserID);
+            var model = new GalleryIndexModel()
+            {
+                Images = imageList,
+                SearchQuery = ""
+            };
+
+            return View(model);
         }
 
         public IActionResult Detail(int id)

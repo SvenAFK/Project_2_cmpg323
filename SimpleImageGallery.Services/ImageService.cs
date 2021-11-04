@@ -7,6 +7,7 @@ using SimpleImageGallery.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace SimpleImageGallery.Services
@@ -22,6 +23,12 @@ namespace SimpleImageGallery.Services
         {
             return _ctx.GalleryImages
                 .Include(img => img.Tags);
+        }
+
+        //function to get images that specfic users uploaded 
+        public IEnumerable<GalleryImage> GetWithUserId(string strCurrentUserID)
+        {
+            return _ctx.GalleryImages.Where(SimpleImageGallery => SimpleImageGallery.User_Id == strCurrentUserID);
         }
 
         public GalleryImage GetById(int id)

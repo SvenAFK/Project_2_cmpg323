@@ -11,6 +11,8 @@ namespace SimpleImageGallery.Data
     {
         IEnumerable<GalleryImage> GetAll();
         IEnumerable<GalleryImage> GetWithTag(string tag);
+        //Custom below
+        IEnumerable<GalleryImage> GetWithUserId(string strCurrentUserID);
         GalleryImage GetById(int id);
         CloudBlobContainer GetBlobContainer(string connectionString, string containerName);
         Task SetImage(string title, string tags, Uri uri,string user_Id);
