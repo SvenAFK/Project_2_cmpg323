@@ -73,7 +73,5 @@ namespace SimpleImageGallery.Services
             }).ToList();
 
         }
-
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Project_2_cmpg323.Models;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Project_2_cmpg323.Controllers
 {
+    [Authorize]
     public class ImageController : Controller
     {
         private IConfiguration _config;
