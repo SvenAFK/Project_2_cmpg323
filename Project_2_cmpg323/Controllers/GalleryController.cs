@@ -15,6 +15,7 @@ namespace Project_2_cmpg323.Controllers
         public GalleryController(IImage imageService) {
             _imageService = imageService;
         }
+
         //Show all gallery images regardless of user
         /*public IActionResult Index()
         {

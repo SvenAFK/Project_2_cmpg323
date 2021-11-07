@@ -77,8 +77,9 @@ namespace SimpleImageGallery.Services
         public async Task UpdateImage(int imageID, string Title, string Tags)
         {
             GalleryImage image = _ctx.GalleryImages.Find(imageID);
+            ImageTag updateTag = _ctx.ImageTags.Find(imageID + 1);
             image.Title = Title;
-            image.Tags = ParseTags(Tags);
+            updateTag.Description = Tags;
             image.Created = DateTime.Now;
             await _ctx.SaveChangesAsync();
         }
