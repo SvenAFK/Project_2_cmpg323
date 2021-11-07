@@ -73,5 +73,14 @@ namespace SimpleImageGallery.Services
             }).ToList();
 
         }
+
+        public async Task UpdateImage(int imageID, string Title, string Tags)
+        {
+            GalleryImage image = _ctx.GalleryImages.Find(imageID);
+            image.Title = Title;
+            image.Tags = ParseTags(Tags);
+            image.Created = DateTime.Now;
+            await _ctx.SaveChangesAsync();
+        }
     }
 }

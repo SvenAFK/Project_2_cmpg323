@@ -11,12 +11,17 @@
         <span>Uploaded: @Model.CreatedOn</span>
     </div>
     <div class="row controls">
-        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">
-            Back to Gallery
-        </a>
+        <!--Back to gallery button-->
+        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to Gallery</a> 
+
+        <!--Update image button-->
+        <a class="btn btn-primary" asp-controller="Image" asp-action="Update" asp-route-id="@Model.Id">Update</a>  
+
+        <!--Download image button-->
         <a class="btn btn-primary " href="@Model.Url">Download</a>
-        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">
-            Delete
-        </a>
+
+        <!--Delete image button-->
+        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Delete</a>
+                   
     </div>
 </div>

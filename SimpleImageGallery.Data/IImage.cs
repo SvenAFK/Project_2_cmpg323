@@ -20,6 +20,9 @@ namespace SimpleImageGallery.Data
         //Upload new images
         Task SetImage(string title, string tags, Uri uri,string user_Id);
 
+        //Update old images
+        Task UpdateImage(int imageID, string Title, string Tags);
+
         List<ImageTag> ParseTags(string tags);
       
     }

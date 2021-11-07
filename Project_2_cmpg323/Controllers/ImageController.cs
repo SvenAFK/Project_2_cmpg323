@@ -31,6 +31,19 @@ namespace Project_2_cmpg323.Controllers
             return View(model);
         }
 
+        public IActionResult Update()
+        {
+            var model = new UpdateImageModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateOldImage(int Id, string Title, string Tags)
+        {
+            await _imageService.UpdateImage(Id, Title, Tags);
+            return RedirectToAction("index", "Gallery");
+        }
+
         [HttpPost]
         public async Task<IActionResult> UploadNewImage(IFormFile file, string tags, string title)
         {
