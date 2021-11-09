@@ -63,5 +63,7 @@ namespace Project_2_cmpg323.Controllers
 
             return RedirectToAction("Index", "Gallery");
         }
+
+
     }
 }
