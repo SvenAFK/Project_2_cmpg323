@@ -74,6 +74,7 @@ namespace SimpleImageGallery.Services
 
         }
 
+        //Update image
         public async Task UpdateImage(int imageID, string Title, string Tags)
         {
             GalleryImage image = _ctx.GalleryImages.Find(imageID);
@@ -83,5 +84,18 @@ namespace SimpleImageGallery.Services
             image.Created = DateTime.Now;
             await _ctx.SaveChangesAsync();
         }
+
+        //Delete image
+        public async Task DeleteImage(int imageID)
+        {
+            GalleryImage image = _ctx.GalleryImages.Find(imageID);
+            ImageTag imageTag = _ctx.ImageTags.Find(imageID + 1);
+
+            _ctx.ImageTags.Remove(imageTag);
+            _ctx.GalleryImages.Remove(image);
+
+            await _ctx.SaveChangesAsync();
+        }
+
     }
 }

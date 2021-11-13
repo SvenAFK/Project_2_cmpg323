@@ -45,6 +45,13 @@ namespace Project_2_cmpg323.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Delete(int Id)
+        {
+            await _imageService.DeleteImage(Id);
+            return RedirectToAction("index", "Gallery");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> UploadNewImage(IFormFile file, string tags, string title)
         {
             var container = _imageService.GetBlobContainer(AzureConnectionString, "images");

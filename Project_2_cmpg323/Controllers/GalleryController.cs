@@ -28,6 +28,7 @@ namespace Project_2_cmpg323.Controllers
 
             return View(model);  
         }*/
+
         public IActionResult Index()
         {
             string strCurrentUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);

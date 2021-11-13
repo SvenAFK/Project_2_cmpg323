@@ -23,6 +23,9 @@ namespace SimpleImageGallery.Data
         //Update old images
         Task UpdateImage(int imageID, string Title, string Tags);
 
+        //Delete image
+        Task DeleteImage(int imageID);
+
         List<ImageTag> ParseTags(string tags);
       
     }

@@ -29,7 +29,29 @@
                         Update
                     </button>
                 </div>
+                
+
             </form>
+
+            <form asp-action="Delete"
+                  id="upload-form">
+                <label>
+                    Delete Image Data:
+                </label>
+                <div class="form-group">
+                    <label asp-for="Id"></label>
+                    <input asp-for="Id" class="form-control" />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <!--Delete image button-->
+                <div class="submit">
+                    <button type="submit" id="btn-upload" class="btn btn-info" value="Delete">
+                        Delete
+                    </button>
+                </div>
+
+            </form>
+
         </div>
     </div>
 </div>

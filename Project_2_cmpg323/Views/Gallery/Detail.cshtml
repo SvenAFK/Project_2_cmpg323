@@ -15,13 +15,10 @@
         <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to Gallery</a> 
 
         <!--Update image button-->
-        <a class="btn btn-primary" asp-controller="Image" asp-action="Update" asp-route-id="@Model.Id">Update</a>  
+        <a class="btn btn-primary" asp-controller="Image" asp-action="Update" asp-route-id="@Model.Id">Update/Delete</a>  
 
         <!--Download image button-->
         <a class="btn btn-primary " href="@Model.Url">Download</a>
-
-        <!--Delete image button-->
-        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Delete</a>
                    
     </div>
 </div>
