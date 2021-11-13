@@ -21,7 +21,7 @@
                 
                 <div class="form-group">
                     <label asp-for="Id"></label>
-                    <input asp-for="Id" class="form-control" value="" readonly/>
+                    <input asp-for="Id" class="form-control" value="@ViewContext.RouteData.Values["Id"]" readonly/>
                     <span asp-validation-for="Id" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -38,8 +38,7 @@
                     <button type="submit" id="btn-upload" class="btn btn-info" value="Update">
                         Update
                     </button>
-                </div>
-                
+                </div>               
 
             </form>
 
@@ -50,7 +49,7 @@
                 
                 <div class="form-group">
                     <label asp-for="Id"></label>
-                    <input asp-for="Id" class="form-control" value="0" readonly/>
+                    <input asp-for="Id" class="form-control" value="@ViewContext.RouteData.Values["Id"]" readonly/>
                     <span asp-validation-for="Id" class="text-danger"></span>
                 </div>
                 <!--Delete image button-->
