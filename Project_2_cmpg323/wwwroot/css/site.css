@@ -48,10 +48,12 @@ for details on configuring this project to bundle and minify static web assets. 
     padding: 60px;
     margin: auto;
     width: 50%;
+    background-color:snow;
 }
 
 .upload-container {
     padding: 2%;
+    padding-top: 10%;
 }
 
 .drop-shadow {
@@ -61,12 +63,6 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
-
-/*Custom*/
-html {
-    background: url("file:///C:\Users\Sven Beyleveld\source\repos\Project_2_cmpg323\Project_2_cmpg323\wwwroot\images\aspbackgroundimage.png") no-repeat center center fixed;
-    background-size: cover;
 }
 
 /* Wrapping element */

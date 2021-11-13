@@ -3,7 +3,7 @@
 <div class="gallery-image-container body-content">
     <div class="row image-detail-container">
         <div class="image-detail">
-            <img src="@Model.Url" alt="@Model.Title"/>
+            <img src="@Model.Url" alt="@Model.Title" />
         </div>
     </div>
     <div class="row image-detail-meta">
@@ -12,13 +12,13 @@
     </div>
     <div class="row controls">
         <!--Back to gallery button-->
-        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to Gallery</a> 
+        <a class="btn btn-primary" asp-controller="Gallery" asp-action="Index">Back to Gallery</a>
 
         <!--Update image button-->
-        <a class="btn btn-primary" asp-controller="Image" asp-action="Update" asp-route-id="@Model.Id">Update/Delete</a>  
+        <a class="btn btn-primary" asp-controller="Image" asp-action="Update" asp-route-id="@Model.Id">Update/Delete</a>
 
         <!--Download image button-->
         <a class="btn btn-primary " href="@Model.Url">Download</a>
-                   
+
     </div>
 </div>

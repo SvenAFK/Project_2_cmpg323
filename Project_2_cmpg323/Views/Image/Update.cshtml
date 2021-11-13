@@ -1,27 +1,37 @@
 ﻿@model Project_2_cmpg323.Models.UpdateImageModel
 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-image: url('@Url.Content("~/images/aspbackgroundimage.png")');
+            background-repeat: no-repeat, repeat;
+            background-size: cover;
+        }
+    </style>
+
 <div class="container body-content">
     <div class="row upload-container">
         <div class="upload-form drop-shadow">
             <form asp-action="UpdateOldImage"
                   id="upload-form">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <label>
-                    Edit Image Data:
-                </label>
+                    <h1>Update Image:</h1>
+                    <h3>Edit Image Data:</h3>
+                
                 <div class="form-group">
                     <label asp-for="Id"></label>
-                    <input asp-for="Id" class="form-control" />
+                    <input asp-for="Id" class="form-control" value="" readonly/>
                     <span asp-validation-for="Id" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Title"></label>
-                    <input asp-for="Title" class="form-control" />
+                    <input asp-for="Title" class="form-control" value="Enter new Title Here.." OnClick="this.value=''"/>
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="Tags"></label>
-                    <input asp-for="Tags" class="form-control" />
+                    <input asp-for="Tags" class="form-control" value="Enter new Tag Here.." OnClick="this.value=''"/>
                     <span asp-validation-for="Tags" class="text-danger"></span>
                 </div>
                 <div class="submit">
@@ -35,12 +45,12 @@
 
             <form asp-action="Delete"
                   id="upload-form">
-                <label>
-                    Delete Image Data:
-                </label>
+                
+                <h3>Delete Image Data:</h3> 
+                
                 <div class="form-group">
                     <label asp-for="Id"></label>
-                    <input asp-for="Id" class="form-control" />
+                    <input asp-for="Id" class="form-control" value="0" readonly/>
                     <span asp-validation-for="Id" class="text-danger"></span>
                 </div>
                 <!--Delete image button-->
