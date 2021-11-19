@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Project_2_cmpg323.Models;
 using SimpleImageGallery.Data;
 using SimpleImageGallery.Services;
+using System;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -40,35 +41,58 @@ namespace Project_2_cmpg323.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateOldImage(int Id, string Title, string Tags)
         {
-            await _imageService.UpdateImage(Id, Title, Tags);
-            return RedirectToAction("index", "Gallery");
+            try
+            {
+                await _imageService.UpdateImage(Id, Title, Tags);
+                return RedirectToAction("index", "Gallery");
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("index", "Gallery");
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> Delete(int Id)
         {
-            await _imageService.DeleteImage(Id);
-            return RedirectToAction("index", "Gallery");
+            try
+            {
+                await _imageService.DeleteImage(Id);
+                return RedirectToAction("index", "Gallery");
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("index", "Gallery");
+            }
+            
         }
 
         [HttpPost]
         public async Task<IActionResult> UploadNewImage(IFormFile file, string tags, string title)
         {
-            var container = _imageService.GetBlobContainer(AzureConnectionString, "images");
+            try
+            {
+                var container = _imageService.GetBlobContainer(AzureConnectionString, "images");
 
-            var content = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
-            var fileName = content.FileName.Trim('"');
+                var content = ContentDispositionHeaderValue.Parse(file.ContentDisposition);
+                var fileName = content.FileName.Trim('"');
 
-            //Get current user
-            string strCurrentUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                //Get current user
+                string strCurrentUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            //Get a reference to a Block Blob
-            var blockBlob = container.GetBlockBlobReference(fileName);
+                //Get a reference to a Block Blob
+                var blockBlob = container.GetBlockBlobReference(fileName);
 
-            await blockBlob.UploadFromStreamAsync(file.OpenReadStream());
-            await _imageService.SetImage(title, tags, blockBlob.Uri, strCurrentUserID);
+                await blockBlob.UploadFromStreamAsync(file.OpenReadStream());
+                await _imageService.SetImage(title, tags, blockBlob.Uri, strCurrentUserID);
 
-            return RedirectToAction("Index", "Gallery");
+                return RedirectToAction("Index", "Gallery");
+            }
+            catch(Exception)
+            {
+                return RedirectToAction("Index", "Gallery");
+            }
+
         }
 
 

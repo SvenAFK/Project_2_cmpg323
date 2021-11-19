@@ -16,19 +16,6 @@ namespace Project_2_cmpg323.Controllers
             _imageService = imageService;
         }
 
-        //Show all gallery images regardless of user
-        /*public IActionResult Index()
-        {
-            var imageList = _imageService.GetAll();
-            var model = new GalleryIndexModel()
-            {
-                Images = imageList,
-                SearchQuery = ""
-            };
-
-            return View(model);  
-        }*/
-
         public IActionResult Index()
         {
             string strCurrentUserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
